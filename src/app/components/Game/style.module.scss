@@ -1,0 +1,52 @@
+@import '@/styles/base';
+
+.container {
+  @include directionY;
+  align-items: center;
+  gap: 0.25rem;
+
+  .title {
+    @include directionX;
+    gap: 2rem;
+    @include md {
+      @include directionY;
+      gap: 0;
+      position: absolute;
+      right: 30px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    h1 {
+      font-family: 'Rampart One', sans-serif;
+      font-weight: 400;
+      font-style: normal;
+      font-size: 3rem;
+      @include md {
+        font-size: 4rem;
+      }
+    }
+  }
+
+  .winner {
+    font-family: 'Rampart One', sans-serif;
+    font-weight: 700;
+    font-size: 3rem;
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 100%;
+    transform: translateX(-50%);
+    @include md {
+      font-size: 6rem;
+    }
+  }
+
+  .blackWin {
+    color: black;
+  }
+
+  .whiteWin {
+    color: white;
+  }
+}

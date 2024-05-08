@@ -1,0 +1,86 @@
+@import '@/styles/base';
+
+.container {
+  @include directionX;
+  gap: 0.5rem;
+  align-self: flex-start;
+  @include md {
+    @include directionY;
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+  .turn {
+    padding: 0.25rem;
+    border: 4px solid white;
+    background-color: #dcb35c;
+
+    .currentPlayer {
+      @include directionX;
+      align-items: center;
+    }
+
+    .blackStone {
+      @include md {
+        @include black-stone($board-scale-desktop);
+      }
+      @include black-stone($board-scale-mobile);
+    }
+
+    .whiteStone {
+      @include md {
+        @include white-stone($board-scale-desktop);
+      }
+      @include white-stone($board-scale-mobile);
+    }
+    .turnAnimation {
+      animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    }
+    .win {
+      animation: bounce 1s infinite;
+    }
+  }
+
+  .menu {
+    border: 4px solid white;
+    background-color: #dcb35c;
+    padding: 0.25rem;
+    @include directionX;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 1rem;
+    @include md {
+      @include directionY;
+    }
+
+    .icon {
+      @include box(1.5rem);
+      &:hover {
+        opacity: 50%;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(-10%);
+    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+  }
+  50% {
+    transform: translateY(0);
+    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
